@@ -1,0 +1,19 @@
+{
+  "name": "webpack-course",
+  "version": "1.0.0",
+  "description": "webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "jeanpi",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "4.39.1",
+    "webpack-cli": "3.3.6"
+  }
+}
