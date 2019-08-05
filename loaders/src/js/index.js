@@ -1,3 +1,3 @@
 import "../css/index.css"
 
-console.log("hola mundo")
+document.body.innerHTML("<p>hola mundo</p>")
