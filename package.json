@@ -9,7 +9,7 @@
     "build:external": "webpack --config ./external/webpack.config.js",
     "build:multi": "webpack --config ./multi-entry-points/webpack.config.js",
     "build:css": "webpack --config ./loaders/webpack.config.js",
-    "build:plugins": "webpack --config ./plugins/webpack.config.js"
+    "build:server": "webpack-dev-server --config ./dev-server/webpack.config.js"
   },
   "keywords": [
     "webpack"
@@ -23,6 +23,7 @@
     "mini-css-extract-plugin": "0.8.0",
     "style-loader": "0.23.1",
     "webpack": "4.39.1",
-    "webpack-cli": "3.3.6"
+    "webpack-cli": "3.3.6",
+    "webpack-dev-server": "3.7.2"
   }
 }
