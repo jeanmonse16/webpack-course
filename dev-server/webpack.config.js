@@ -12,12 +12,13 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "js/[name].js"
     },
-    devServer:{
+    devServer: {
         hot: true,
         open: true,
         port: 9000,
     },
     module: {
+        noParse: /jquery|lodash/,
         rules: [
         {
           test: /\.css$/,
@@ -32,6 +33,9 @@ module.exports = {
      new webpack.HotModuleReplacementPlugin(),
      new HtmlWebpackPlugin({
          title: "webpack-dev-server"
-     })
+     }),
+     new MiniCSSExtractPlugin({
+        filename: 'css/[name].css'
+      })
    ]
 }
