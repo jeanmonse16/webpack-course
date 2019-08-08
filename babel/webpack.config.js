@@ -1,4 +1,5 @@
 const path = require("path")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require("webpack")
 
@@ -19,6 +20,12 @@ module.exports = {
     module: {
         noParse: /jquery|lodash/,
         rules: [
+        {
+                test: /\.js$/,
+                use: [
+                  "babel-loader"
+                     ]
+        },
         {
           test: /\.css$/,
           use: [

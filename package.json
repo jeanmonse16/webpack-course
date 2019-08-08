@@ -9,7 +9,8 @@
     "build:external": "webpack --config ./external/webpack.config.js",
     "build:multi": "webpack --config ./multi-entry-points/webpack.config.js",
     "build:css": "webpack --config ./loaders/webpack.config.js",
-    "build:server": "webpack-dev-server --config ./dev-server/webpack.config.js"
+    "build:server": "webpack-dev-server --config ./dev-server/webpack.config.js",
+    "build:babel": "webpack-dev-server --config ./babel/webpack.config.js"
   },
   "keywords": [
     "webpack"
@@ -18,6 +19,9 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "babel-loader": "8.0.6",
     "css-loader": "3.1.0",
     "html-webpack-plugin": "3.2.0",
     "mini-css-extract-plugin": "0.8.0",
