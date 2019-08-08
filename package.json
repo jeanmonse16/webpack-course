@@ -17,9 +17,12 @@
   ],
   "author": "jeanpi",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/runtime": "7.5.5"
+  },
   "devDependencies": {
     "@babel/core": "7.5.5",
+    "@babel/plugin-transform-runtime": "7.5.5",
     "@babel/preset-env": "7.5.5",
     "babel-loader": "8.0.6",
     "css-loader": "3.1.0",
