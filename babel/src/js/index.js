@@ -1,12 +1,16 @@
 import "../css/index.css"
 
-import text from "./text"
+import search from "./search"
+import render from "./render"
 
-text()
 
-if(module.hot){
-    module.hot.accept("./text.js",function(){
-    console.log("he recargado en caliente")
-    text()
-    })
-}
+const id = prompt("cual es tu pokemon xd")
+
+search(id)
+          .then((data)=>{
+              render(data)
+          })
+          .catch(()=>{
+              console.log("error al conectar con la api")
+          })
+
