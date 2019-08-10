@@ -8,7 +8,7 @@ module.exports = {
     home: path.resolve(__dirname, "src/js/index.js"),
     contact: path.resolve(__dirname, "src/js/contact.js")
     },
-    mode: "development",
+    mode: "production",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "js/[name].js"
