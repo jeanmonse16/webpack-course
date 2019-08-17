@@ -5,14 +5,12 @@ const webpack = require("webpack")
 
 module.exports = {
     entry: {
-    home: path.resolve(__dirname, "src/js/index.js"),
-    contact: path.resolve(__dirname, "src/js/contact.js")
+    app: path.resolve(__dirname, "src/index.js"),
     },
-    mode: "production",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "js/[name].js",
-        publicPath: "dist/",
+        publicPath: "http://localhost:3001",
         chunkFilename: "js/[id].[chunkhash].js"
     },
     module: {
@@ -31,57 +29,21 @@ module.exports = {
               {
                 loader: MiniCssExtractPlugin.loader
               },
-              {
-                loader:"css-loader",
-                options: {
-                  importLoaders: 1
-                }
-              },
-              "postcss-loader"
-               ]
+              "css-loader"
+            ]
         },
         {
           test: /\.jpg|png|gif|svg|mp4|webm|woff|eot|ttf$/,
           use: [{
             loader:"url-loader",
             options: {
-              limit: 90000
+              limit: 1000
             }
           }
                ],
           exclude: /node_modules/,
-        },
-        {
-          test: /\.less$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader
-            },
-              "css-loader",
-              "less-loader"
-               ]
-        },
-        {
-          test: /\.scss$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader
-            },
-              "css-loader",
-              "sass-loader"
-               ]
-        },
-        {
-          test: /\.styl$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader
-            },
-              "css-loader",
-              "stylus-loader"
-               ]
         }
-     ]
+      ]
    },
    plugins: [
      new MiniCssExtractPlugin({
@@ -89,8 +51,7 @@ module.exports = {
        chunkFilename: "css/[id].css"
      }),
      new HtmlWebpackPlugin({
-         title: "webpack-dev-server",
-         template:  path.resolve(__dirname, "index.html")
+         template:  path.resolve(__dirname, "public/index.html")
      }),
      new webpack.DllReferencePlugin({
        manifest: require("./modules-manifest.json")

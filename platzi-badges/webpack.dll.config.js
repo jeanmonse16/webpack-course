@@ -1,16 +1,14 @@
 const path = require("path")
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require("webpack")
 
 module.exports = {
     entry: {
         modules:[
           "react",
-          "react-dom"
+          "react-dom",
+          "react-router-dom",
         ]
     },
-    mode: "production",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "js/[name].js",
