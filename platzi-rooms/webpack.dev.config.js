@@ -1,10 +1,11 @@
 const path = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require("webpack")
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     entry: {
-    app: path.resolve(__dirname, "src/index.js")
+    app: path.resolve(__dirname, "src/main.js")
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -18,9 +19,18 @@ module.exports = {
         port: 9000,
         hot: true
     },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src')
+      }
+    },
     module: {
         noParse: /jquery|lodash/,
         rules: [
+        {
+            test: /\.vue$/,
+            use: 'vue-loader',
+        },
         {
                 test: /\.js$/,
                 use: [
@@ -29,10 +39,16 @@ module.exports = {
                      exclude: /node_modules/,
         },
         {
-          test: /\.css$/,
+          test: /\.css|postcss$/,
           use: [
                   "style-loader",
-                  "css-loader"
+                  {
+                    loader: 'css-loader',
+                    options: {
+                      importLoaders: 1  
+                  }
+                },
+                  "postcss-loader"
                ]
         },
         {
@@ -50,6 +66,7 @@ module.exports = {
      ]
    },
    plugins: [
+     new VueLoaderPlugin(),
      new webpack.HotModuleReplacementPlugin(),
      new HtmlWebpackPlugin({
          template:  path.resolve(__dirname, "public/index.html")
